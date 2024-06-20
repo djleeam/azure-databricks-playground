@@ -1,6 +1,6 @@
 terraform {
   required_providers {
-    azurerm = "~> 2.33"
+    azurerm = "~> 2.37"
     random  = "~> 2.2"
     databricks = {
       source = "databricks/databricks"
@@ -9,7 +9,13 @@ terraform {
 }
 
 provider "azurerm" {
-  features {}
+  features {
+    key_vault {
+      purge_soft_delete_on_destroy    = true
+      recover_soft_deleted_key_vaults = true
+    }
+
+  }
 }
 
 provider "databricks" {
