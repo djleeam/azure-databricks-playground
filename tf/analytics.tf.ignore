@@ -49,6 +49,14 @@ data "http" "myip" {
   url = "http://ifconfig.me"
 }
 
+# Synapse dedicated SQL Pool
+# resource "azurerm_synapse_sql_pool" "dedicated_pool" {
+#   name                 = "synapse01pool${random_string.naming.result}"
+#   synapse_workspace_id = azurerm_synapse_workspace.synapse_workspace.id
+#   sku_name             = "DW100c"
+#   create_mode          = "Default"
+# }
+
 # Synapse Workspace Firewall Rules
 resource "azurerm_synapse_firewall_rule" "sandbox" {
   name                 = "my-ip-firewall-rule1"
