@@ -6,23 +6,12 @@ terraform {
       source = "databricks/databricks"
     }
   }
-
-  cloud {
-    organization = "invert-always-invert"
-
-    workspaces {
-      name = "azure-databricks-playground"
-    }
-  }
 }
 
+data "azurerm_client_config" "current" {}
+
 provider "azurerm" {
-  features {
-    key_vault {
-      purge_soft_delete_on_destroy    = true
-      recover_soft_deleted_key_vaults = true
-    }
-  }
+  features {}
 }
 
 provider "databricks" {

@@ -15,4 +15,4 @@ This project serves as a playground for setting up Databricks workspaces within 
     }
     ```
   * Alternatively, the `cloud {...}` block in `providers.tf` can be removed to store terraform state locally
-* Run `terraform apply`
+* Run `terraform apply -var-file="terraform.tfvars"`
